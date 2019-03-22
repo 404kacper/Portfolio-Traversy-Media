@@ -4,11 +4,13 @@
   "description": "Responsive portfolio website",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "watch-css": "nodemon -e scss -x \"npm run scss\""
   },
   "author": "Kacper Sionkowski",
   "license": "MIT",
   "dependencies": {
     "node-sass": "^4.11.0"
-  }
+  },
+  "devDependencies": {}
 }
