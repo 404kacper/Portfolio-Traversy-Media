@@ -66,6 +66,10 @@ main {
 }
 
 .menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9;
     visibility: hidden;
     &.show {
         visibility: visible;
@@ -87,7 +91,6 @@ main {
         margin: 0;
         padding: 0;
         background: darken($primary-color, 5);
-        opacity: $background-opacity;
         list-style: none;
         transform: translate3d(0, 100%, 0);
         @include easeOut;
@@ -102,8 +105,6 @@ main {
         margin: 0;
         padding: 0;
         background: $primary-color;
-        opacity: $background-opacity;
-        list-style: none;
         transform: translate3d(0, -100%, 0);
         @include easeOut;
         
@@ -111,5 +112,50 @@ main {
             //Slide in from top
             transform: translate3d(0, 0 ,0);
         }
+
+        .portrait {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+            background: $portrait-image;
+        }
+    }
+
+    .nav-item {
+        transform: translate3d(600px, 0, 0);
+        @include easeOut;
+
+        &.show {
+            //Slide in from 
+            transform: translate3d(0, 0, 0);
+        }
+
+        &.current > a {
+            color: $secondary-color;
+        }
+    }
+
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 2rem;
+        text-transform: uppercase;
+        padding: 1rem;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        @include easeOut;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+//Delay each nav item slide by 0.1s
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}){
+        transition-delay: 0.1s * $x;
     }
 }
